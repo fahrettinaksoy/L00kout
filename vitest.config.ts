@@ -11,13 +11,26 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'lcov', 'html'],
-      include: ['app/**/*.ts', 'server/**/*.ts'],
+      // Limit coverage to the pure, unit-testable modules. Endpoint handlers
+      // (server/api/checks/*.get.ts), Nitro plugins and Nuxt composables that
+      // depend on framework auto-imports are exercised by E2E / runtime
+      // tests instead and would otherwise drag the % down to zero.
+      include: [
+        'shared/url.ts',
+        'app/composables/useCheckStatus.ts',
+        'server/utils/dns.ts',
+        'server/utils/errors.ts',
+        'server/utils/httpSecurity.ts',
+        'server/utils/rateLimit.ts',
+        'server/utils/scoring.ts',
+        'server/utils/ssrf.ts',
+      ],
       exclude: ['**/*.spec.ts', 'app/**/*.vue', '.nuxt/**', 'node_modules/**'],
       thresholds: {
-        lines: 60,
-        functions: 60,
-        branches: 60,
-        statements: 60,
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80,
       },
     },
   },
