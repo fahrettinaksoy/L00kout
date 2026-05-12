@@ -33,7 +33,7 @@ jobs:
           CI: 'true'
       - name: Upload coverage
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: coverage
           path: coverage
@@ -56,7 +56,7 @@ jobs:
       - name: Bundle size check
         run: npm run size
         continue-on-error: true
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: nuxt-build
           path: .output
@@ -74,7 +74,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run docs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: typedoc
           path: docs/api
@@ -95,7 +95,7 @@ jobs:
       - run: npm run test:e2e
         env:
           CI: 'true'
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: playwright-report
