@@ -1,0 +1,510 @@
+{
+  "common": {
+    "appName": "L00kout",
+    "tagline": "Herhangi bir web sitesi için 31 OSINT ve güvenlik kontrolü",
+    "subtagline": "SSL · DNS · WHOIS · Headers · Tech Stack · Lighthouse · ve daha fazlası",
+    "rerun": "Yeniden çalıştır",
+    "rawData": "Ham veri",
+    "loading": "Kontrol ediliyor…",
+    "noResults": "Sonuç yok",
+    "unknownError": "Bilinmeyen hata",
+    "secondsShort": "s",
+    "msShort": "ms",
+    "info": "Bilgi",
+    "refresh": "Yenile",
+    "close": "Kapat",
+    "theme": "Tema",
+    "themeDark": "Karanlık",
+    "themeLight": "Aydınlık",
+    "concept": "Bu kontrol nedir?",
+    "purpose": "Neden önemli?",
+    "tips": "Sonuçta nelere bakmalı?"
+  },
+  "landing": {
+    "inputLabel": "URL veya alan adı",
+    "inputPlaceholder": "example.com",
+    "submit": "Analiz Başlat",
+    "invalid": "Geçerli bir URL veya alan adı girin (örn: example.com)",
+    "examples": "Örnekler"
+  },
+  "dashboard": {
+    "targetLabel": "Analiz hedefi",
+    "completed": "Tamamlanan",
+    "all": "Tümü",
+    "searchPlaceholder": "example.com",
+    "overview": "Özet",
+    "categories": "Kategoriler",
+    "success": "Başarılı",
+    "running": "Çalışıyor",
+    "error": "Hata"
+  },
+  "categories": {
+    "security": "Güvenlik",
+    "dns": "DNS",
+    "network": "Ağ",
+    "performance": "Performans",
+    "metadata": "Metadata",
+    "crawling": "Crawling",
+    "reputation": "İtibar"
+  },
+  "checks": {
+    "ssl": {
+      "title": "SSL Sertifikası",
+      "description": "Sertifika detayları, TLS protokolü, cipher ve SSL Labs notu"
+    },
+    "http-security": {
+      "title": "HTTP Güvenlik Header'ları",
+      "description": "CSP, HSTS (preload dahil), X-Frame-Options ve daha fazlasının skor analizi"
+    },
+    "firewall": {
+      "title": "WAF Tespiti",
+      "description": "Cloudflare, AWS WAF, Sucuri gibi güvenlik duvarı tespiti"
+    },
+    "security-txt": {
+      "title": "Security.txt",
+      "description": "/.well-known/security.txt dosyası ve sorumlu açıklama politikası"
+    },
+    "cookies": {
+      "title": "Çerez Analizi",
+      "description": "HttpOnly, Secure, SameSite çerez bayrak analizi"
+    },
+    "dns": {
+      "title": "DNS Kayıtları",
+      "description": "Tüm kayıt tipleri, nameserver DoH desteği ve TXT sınıflandırması"
+    },
+    "dnssec": {
+      "title": "DNSSEC",
+      "description": "DNS güvenlik uzantıları (DS/DNSKEY) doğrulaması"
+    },
+    "mail-config": {
+      "title": "E-posta Konfigürasyonu",
+      "description": "SPF / DKIM / DMARC e-posta doğrulama yapılandırması"
+    },
+    "whois": {
+      "title": "WHOIS",
+      "description": "Domain kayıt sahibi, registrar ve sona erme tarihi"
+    },
+    "subdomains": {
+      "title": "Subdomain'ler",
+      "description": "Certificate Transparency loglarından subdomain keşfi"
+    },
+    "hostnames": {
+      "title": "Host Adları",
+      "description": "IP'lerin reverse DNS (PTR) kayıtlarından hostname'ler"
+    },
+    "location": {
+      "title": "Sunucu Konumu",
+      "description": "IPv4/IPv6 adresleri, coğrafi konum, ülke, ISP ve harita"
+    },
+    "ports": {
+      "title": "Açık Portlar",
+      "description": "Yaygın TCP portlarının (22, 25, 80, 443, vb.) durumu"
+    },
+    "trace-route": { "title": "Traceroute", "description": "Hedef sunucuya kadar olan ağ yolu" },
+    "status": { "title": "Sunucu Durumu", "description": "HTTP status kodu ve yanıt süresi" },
+    "quality": {
+      "title": "Lighthouse Skoru",
+      "description": "Performance, Accessibility, SEO, Best Practices skorları"
+    },
+    "carbon": {
+      "title": "Karbon Ayak İzi",
+      "description": "Sayfa yüklemesinin tahmini CO₂ emisyonu"
+    },
+    "screenshot": {
+      "title": "Ekran Görüntüsü",
+      "description": "Headless tarayıcı ile alınmış sitenin görüntüsü"
+    },
+    "headers": {
+      "title": "HTTP Header'ları",
+      "description": "Response header'larının tam listesi"
+    },
+    "tech-stack": {
+      "title": "Teknoloji Stack'i",
+      "description": "Sitenin kullandığı framework, kütüphane ve servisler"
+    },
+    "social-tags": {
+      "title": "Sosyal Medya Etiketleri",
+      "description": "Open Graph, Twitter Cards, Facebook meta etiketleri"
+    },
+    "redirects": {
+      "title": "Yönlendirmeler",
+      "description": "HTTP yönlendirme zinciri ve final URL"
+    },
+    "robots-txt": {
+      "title": "robots.txt",
+      "description": "Crawler kuralları ve izin verilen/yasak yollar"
+    },
+    "sitemap": { "title": "Sitemap", "description": "sitemap.xml veya sitemap_index.xml içeriği" },
+    "linked-pages": {
+      "title": "Bağlantılar",
+      "description": "Sayfadaki dahili ve harici bağlantılar"
+    },
+    "archives": {
+      "title": "Wayback Machine",
+      "description": "archive.org'daki tarihsel snapshot'lar"
+    },
+    "rank": {
+      "title": "Global Sıralama",
+      "description": "Tranco listesindeki global popülerlik sıralaması"
+    },
+    "block-lists": {
+      "title": "Engelleme Listeleri",
+      "description": "Privacy/malware DNS blocklist'lerinde kontrol"
+    },
+    "threats": {
+      "title": "Tehdit Tespiti",
+      "description": "URLhaus, PhishTank gibi tehdit listelerinde kontrol"
+    },
+    "shodan": {
+      "title": "Shodan",
+      "description": "Shodan.io üzerinden host'a ait servis ve banner bilgileri"
+    },
+    "malware": {
+      "title": "Malware Taraması",
+      "description": "Google Safe Browsing benzeri zararlı yazılım tespiti"
+    }
+  },
+  "ssl": {
+    "daysLeft": "{n} gün kaldı",
+    "issuer": "Issuer",
+    "subject": "Subject",
+    "trusted": "Güvenilir",
+    "validity": "Geçerlilik",
+    "altNames": "Alt isimler",
+    "altNamesCount": "{n} domain",
+    "expires": "Bitiş",
+    "renewed": "Yenilenme",
+    "serialNumber": "Serial",
+    "fingerprint": "Fingerprint",
+    "asn1Curve": "ASN1 Curve",
+    "nistCurve": "NIST Curve",
+    "keyAlgo": "Anahtar",
+    "signature": "İmza",
+    "extKeyUsage": "Extended Key Usage",
+    "protocol": "Protokol",
+    "cipher": "Cipher",
+    "labsGrade": "SSL Labs",
+    "alpn": "ALPN",
+    "forwardSecrecy": "Forward Secrecy",
+    "sessionResumption": "Session Resumption",
+    "ocsp": "OCSP Stapling",
+    "ephemeralKey": "Ephemeral Key",
+    "yes": "Evet",
+    "no": "Hayır"
+  },
+  "dns": {
+    "noRecords": "Kayıt bulunamadı",
+    "records": "Kayıtlar",
+    "nameservers": "Nameserver",
+    "doh": "DoH",
+    "txtClassified": "TXT Sınıflandırma",
+    "supported": "destekli",
+    "notSupported": "desteksiz",
+    "more": "daha"
+  },
+  "techStack": {
+    "detected": "{n} teknoloji tespit edildi"
+  },
+  "httpSec": {
+    "headersPresent": "{n} / {total} header mevcut",
+    "hstsTitle": "HSTS",
+    "hstsActive": "Aktif",
+    "hstsMissing": "Yok",
+    "hstsPreload": "Preload",
+    "hstsSubdomains": "Subdomains",
+    "hstsMaxAge": "Süre",
+    "headers": "Header'lar"
+  },
+  "cookies": {
+    "total": "Toplam çerez",
+    "secure": "Secure",
+    "httpOnly": "HttpOnly"
+  },
+  "redirects": {
+    "count": "{n} yönlendirme"
+  },
+  "status": {
+    "responseTime": "{n}ms yanıt süresi"
+  },
+  "ip": {
+    "ipv4": "IPv4",
+    "ipv6": "IPv6"
+  },
+  "location": {
+    "isp": "ISP",
+    "asn": "ASN",
+    "ip": "IP",
+    "city": "Şehir",
+    "country": "Ülke",
+    "timezone": "Saat dilimi",
+    "languages": "Diller",
+    "currency": "Para birimi",
+    "coordinates": "Konum"
+  },
+  "ports": {
+    "openCount": "{n} açık port",
+    "allClosed": "Yaygın portlar kapalı",
+    "closedTitle": "Bağlantı kurulamayan portlar"
+  },
+  "firewall": {
+    "detected": "Tespit edildi",
+    "notDetected": "Tespit edilmedi",
+    "disclaimer": "Domain özel/tescilli bir WAF ile korunuyor olabilir; otomatik olarak tespit edemedik.",
+    "server": "Server"
+  },
+  "archives": {
+    "snapshots": "Snapshot",
+    "first": "İlk arşiv",
+    "last": "Son arşiv",
+    "notFound": "Arşiv bulunamadı"
+  },
+  "screenshot": {
+    "failed": "Ekran görüntüsü alınamadı",
+    "via": "kaynak: {provider}"
+  },
+  "robots": {
+    "allow": "Allow",
+    "disallow": "Disallow",
+    "sitemap": "Sitemap",
+    "notFound": "robots.txt bulunamadı"
+  },
+  "sitemap": {
+    "url": "URL",
+    "index": "Index",
+    "notFound": "Sitemap bulunamadı"
+  },
+  "subdomains": {
+    "base": "Ana domain",
+    "found": "Bulunan",
+    "noneFound": "Subdomain bulunamadı",
+    "showing": "İlk {n} gösteriliyor"
+  },
+  "hostnames": {
+    "ips": "IP'ler",
+    "hostnames": "Hostname'ler",
+    "noPtr": "PTR kaydı yok"
+  },
+  "blockLists": {
+    "blocked": "Engellendi",
+    "notBlocked": "Engellenmedi",
+    "summary": "{safe}/{total} sağlayıcıda güvenli"
+  },
+  "rank": {
+    "current": "Mevcut",
+    "average": "Ortalama",
+    "best": "En iyi",
+    "worst": "En kötü",
+    "history": "Son 12",
+    "notRanked": "Tranco listesinde değil"
+  },
+  "dnssecExt": {
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "records": "Kayıtlar",
+    "flags": "Flag'ler"
+  },
+  "external": {
+    "keyRequired": "API anahtarı gerekli",
+    "keyHint": "Bu kontrol için ücretsiz API anahtarı kaydı yapmanız gerekiyor. Detaylar için README ve .env.example dosyasına bakın.",
+    "rateLimited": "Servis sınırına ulaşıldı",
+    "tryLater": "Birkaç dakika sonra tekrar deneyin"
+  },
+  "mail": {
+    "spf": "SPF",
+    "dkim": "DKIM",
+    "dmarc": "DMARC",
+    "mx": "MX",
+    "score": "Skor",
+    "configured": "Yapılandırıldı",
+    "missing": "Yok",
+    "selector": "Selector",
+    "policy": "Politika"
+  },
+  "whois": {
+    "domain": "Domain",
+    "registrar": "Registrar",
+    "registrarUrl": "Registrar URL",
+    "registrarIanaId": "Registrar IANA ID",
+    "registrarWhois": "Registrar WHOIS",
+    "created": "Oluşturulma",
+    "expires": "Sona erme",
+    "updated": "Güncelleme",
+    "dnssec": "DNSSEC",
+    "registryId": "Registry ID",
+    "status": "Durum"
+  },
+  "info": {
+    "ssl": {
+      "concept": "Sertifika, TLS protokolü ve cipher suite analizi ile sertifika otoritesinin (CA) güvenilirliği ve sektör standardı SSL Labs notu birleştirilmiş kapsamlı SSL/TLS değerlendirmesi.",
+      "purpose": "Trafik şifrelemesi, MITM koruması, ileriye dönük güvenlik (PFS) ve sertifikanın yenilenmesi gereken tarihi izleme — hem teknik hem itibarsal boyut.",
+      "tips": "Trusted = Evet olmalı, TLS 1.3 tercih, ECDHE cipher PFS sağlar, SSL Labs A veya A+ hedeflenmeli. 30 günden az kaldıysa yenileme gerekir."
+    },
+    "http-security": {
+      "concept": "Tarayıcının davranışını kısıtlayan güvenlik header'larının (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, Cross-Origin politikaları) varlığı, kalitesi ve A-F notu. HSTS preload listesi durumu da dahil.",
+      "purpose": "XSS, clickjacking, MIME sniffing, SSL stripping ve veri sızıntısı gibi yaygın web saldırılarına karşı tarayıcı seviyesinde savunma — yapılandırma kalitesi tek bakışta görülür.",
+      "tips": "A veya B notu hedeflenmeli. CSP, HSTS (max-age ≥ 1 yıl + includeSubDomains + preload) ve X-Content-Type-Options en azından olmalı."
+    },
+    "firewall": {
+      "concept": "Web Application Firewall (WAF), uygulama katmanında trafiği inceleyip kötü amaçlı istekleri (SQL injection, XSS, bot trafiği) filtreler. HTTP header parmak izi ile tespit edilir.",
+      "purpose": "Bilinen saldırı imzalarını engeller, DDoS koruması sağlar ve OWASP Top 10 zafiyetlerine karşı katman ekler.",
+      "tips": "Cloudflare, AWS WAF, Sucuri, Fastly, Imperva yaygındır. WAF olmaması her zaman kötü değil ama public servisler için tavsiye edilir."
+    },
+    "security-txt": {
+      "concept": "RFC 9116 standardı — /.well-known/security.txt dosyası, güvenlik araştırmacılarının zafiyet bildirebilmesi için iletişim bilgisi ve politika içerir.",
+      "purpose": "Sorumlu açıklama (responsible disclosure) kanalı sunar; ciddi şirketlerin güvenlik olgunluk göstergesidir.",
+      "tips": "Contact, Expires ve Policy alanları olmalı. Expires geçmiş tarihte olmamalı."
+    },
+    "cookies": {
+      "concept": "Sitenin set ettiği HTTP çerezleri ve güvenlik bayraklarının (Secure, HttpOnly, SameSite) analizi.",
+      "purpose": "HttpOnly olmayan çerezler XSS ile çalınabilir; Secure olmayanlar HTTP üzerinden sızabilir; SameSite=Strict/Lax CSRF saldırılarına karşı korur.",
+      "tips": "Oturum çerezleri (session, auth) mutlaka HttpOnly + Secure + SameSite olmalı."
+    },
+    "dns": {
+      "concept": "Tüm DNS kayıt tiplerinin (A, AAAA, MX, NS, CNAME, SOA, TXT, SRV) toplu sorgusu, nameserver'ların DNS-over-HTTPS (DoH) desteği ve TXT kayıtlarının amaca göre sınıflandırması (SPF, DMARC, DKIM, BIMI, doğrulama).",
+      "purpose": "Domain'in nereye bağlandığı, mail nasıl yönlendirildiği, hangi servislerin doğrulandığı ve resolver gizliliği — DNS altyapısının bütünsel görüntüsü.",
+      "tips": "Birden fazla NS kaydı yedeklilik için şart, MX yoksa mail çalışmaz, DoH destekli resolver gizliliği artırır, SPF lookup limiti 10 DNS sorgusudur."
+    },
+    "dnssec": {
+      "concept": "DNSSEC, DNS yanıtlarını kriptografik olarak imzalar. DS ve DNSKEY kayıtları doğrulamayı sağlar.",
+      "purpose": "DNS cache poisoning ve spoofing saldırılarına karşı korur. Resolver, yanıtın gerçekten yetkili sunucudan geldiğini doğrular.",
+      "tips": "DNSSEC aktifse DS kaydı parent zone'da, DNSKEY kendi zone'unda olmalı. .gov ve .bank gibi domain'lerde önerilir."
+    },
+    "mail-config": {
+      "concept": "E-posta gönderirken kimlik doğrulama: SPF (hangi sunucular gönderebilir), DKIM (mesaj imzası), DMARC (politika ve raporlama).",
+      "purpose": "Üçü birlikte e-posta sahteciliği (spoofing) ve phishing saldırılarına karşı koruma sağlar. Eksiklik mailların spam'e düşmesine neden olur.",
+      "tips": "Üçünün de varlığı önemlidir. DMARC politikası başlangıçta p=none, sonra quarantine, sonunda reject olmalı."
+    },
+    "whois": {
+      "concept": "WHOIS, alan adı kayıt bilgilerini sorgular: kim aldı, hangi registrar üzerinden, ne zaman alındı, ne zaman bitiyor.",
+      "purpose": "Domain'in yaşı, sahipliği ve süresi güvenilirlik göstergesidir. Yeni alınmış domain'ler phishing için sık kullanılır.",
+      "tips": "Çok yakın sona erme tarihi (örn. 30 gün) ihmal işaretidir. GDPR sonrası birçok alanda kayıt sahibi gizlenir (REDACTED FOR PRIVACY)."
+    },
+    "subdomains": {
+      "concept": "Certificate Transparency (CT) logları, her yeni SSL sertifikasının kamuya açık şekilde kaydedildiği halka açık bir log sistemidir. crt.sh üzerinden bu loglardan domain'e ait subdomain'ler keşfedilir.",
+      "purpose": "Saldırı yüzeyinin görünür bir haritasını çıkarır — dev/staging/admin gibi unutulmuş subdomain'ler büyük güvenlik riskleridir. OSINT araştırmasında temel adımdır.",
+      "tips": "Yüzlerce subdomain spam/auto-generated olabilir. dev., staging., admin., test., internal. gibi prefix'lere dikkat. Wildcard sertifikalar tek subdomain gibi görünür."
+    },
+    "hostnames": {
+      "concept": "PTR (reverse DNS) kayıtları bir IP'yi hostname'e çevirir. IP başına birden fazla hostname olabilir (paylaşımlı hosting, CDN).",
+      "purpose": "IP'nin gerçek sahipliği, paylaşımlı hosting tespiti, CDN doğrulama ve mail spam itibarı için kullanılır.",
+      "tips": "PTR kaydı olmayan IP'ler mail göndericiliği için problemlidir. Çok sayıda farklı domain PTR'da paylaşımlı hosting işaretidir."
+    },
+    "location": {
+      "concept": "Domain'in tüm IPv4/IPv6 adreslerini A/AAAA DNS kayıtlarından çözümler, ardından birincil IP'nin coğrafi konumunu, ISP'sini, ASN'sini ve haritada konumunu bulur.",
+      "purpose": "Sunucunun nerede ve hangi sağlayıcıda barındığı, CDN kullanımı, gizlilik (GDPR), latency tahmini ve trafik desenleri — sunucu kimliğinin bütünsel görüntüsü.",
+      "tips": "Birden fazla IPv4 load balancing/CDN işaretidir. IPv6 desteği modernlik göstergesidir. CDN kullanılıyorsa konum bölgeye göre değişir."
+    },
+    "ports": {
+      "concept": "Yaygın TCP portlarına (22-SSH, 25-SMTP, 80-HTTP, 443-HTTPS, 3306-MySQL vb.) bağlantı denenir; açık olanlar tespit edilir.",
+      "purpose": "İnternet'e gereksiz yere açılmış servisler saldırı yüzeyini büyütür. Veritabanı portları (3306, 5432, 6379) public'e açık olmamalı.",
+      "tips": "Sadece 80 ve 443 açık olmalı çoğu web servisinde. SSH (22) varsa fail2ban ve key-only auth kullanılmalı."
+    },
+    "trace-route": {
+      "concept": "Paketin hedef sunucuya kadar geçtiği ağ atlamalarını (router'ları) gösterir. Her hop'taki gecikmeyi ölçer.",
+      "purpose": "Ağ topolojisini anlamak, gecikme kaynaklarını bulmak ve trafiğin hangi ülkelerden geçtiğini görmek için.",
+      "tips": "Yüksek hop sayısı veya tek bir hop'ta uzun süre = darboğaz. Yıldız (*) olan hop'lar genelde firewall arkasında ICMP'yi gizler."
+    },
+    "status": {
+      "concept": "Site online mı, HTTP status kodu (200, 301, 404, 500 vb.) nedir, ilk yanıt süresi ne kadar — temel sağlık kontrolü.",
+      "purpose": "Sitenin erişilebilir ve sağlıklı olduğunu doğrulamak. Yavaş yanıt (>1s) UX problemi işaretidir.",
+      "tips": "200 = OK, 3xx = yönlendirme, 4xx = istemci hatası, 5xx = sunucu hatası. TTFB (time to first byte) < 200ms ideal."
+    },
+    "quality": {
+      "concept": "Google Lighthouse, sayfayı headless tarayıcıda yükleyip Performance, Accessibility, Best Practices ve SEO açısından 0-100 arası puanlar.",
+      "purpose": "Kullanıcı deneyimi, arama motoru sıralaması, dönüşüm oranları ve erişilebilirlik için somut metrikler sağlar.",
+      "tips": "90+ iyi, 50-89 orta, <50 kötü. LCP < 2.5s, CLS < 0.1, INP < 200ms Core Web Vitals hedefleridir."
+    },
+    "carbon": {
+      "concept": "Sayfa yüklemesinde transfer edilen veri miktarından, küresel enerji karışımı varsayımıyla tahmini CO₂ emisyonu hesaplanır.",
+      "purpose": "Web sürdürülebilirliği büyüyen bir konu. Ağır siteler hem yavaş hem çevreye zararlı; optimizasyon hem teknik hem etik fayda sağlar.",
+      "tips": "Görsel boyutlarını küçült, gereksiz JavaScript'i kaldır, yeşil enerjili hosting tercih et."
+    },
+    "screenshot": {
+      "concept": "Headless tarayıcı (örn. Puppeteer) ile sayfanın görsel ekran görüntüsünü alır.",
+      "purpose": "Sitenin nasıl göründüğünü, deface (sayfa kaplanması) saldırılarını veya SSR/CSR farklılıklarını görmek için.",
+      "tips": "Boş veya bozuk görüntü render sorunu işaretidir. Mobile vs desktop görseller karşılaştırılabilir."
+    },
+    "headers": {
+      "concept": "HTTP yanıtında dönen tüm header'lar — Content-Type, Cache-Control, Server, X-Powered-By, sıkıştırma bilgisi vb.",
+      "purpose": "Sunucu yapılandırması hakkında bilgi verir. Bazı header'lar (Server, X-Powered-By) gereksiz yere stack bilgisini sızdırır.",
+      "tips": "Server ve X-Powered-By'yi gizlemek info disclosure azaltır. Cache-Control performans için kritiktir."
+    },
+    "tech-stack": {
+      "concept": "HTML, header ve script imzalarını analiz ederek sitenin kullandığı framework, CMS, CDN, analytics, payment ve diğer teknolojileri tespit eder.",
+      "purpose": "Rakip analizi, güvenlik araştırması (eski sürüm tespiti), pazar araştırması ve teknoloji benchmarking için.",
+      "tips": "Eski sürümler (WordPress 4.x, eski jQuery) bilinen zafiyetler içerebilir. Çok fazla 3rd-party script gizlilik riskidir."
+    },
+    "social-tags": {
+      "concept": "Open Graph (Facebook, LinkedIn) ve Twitter Cards meta tag'leri — sayfa sosyal medyada paylaşıldığında görünen önizleme görsel/başlık/açıklama.",
+      "purpose": "Tıklama oranını ve marka algısını doğrudan etkiler. Eksik etiketler bozuk önizlemeye neden olur.",
+      "tips": "og:title, og:description, og:image (1200x630px) ve twitter:card en az gerekli setiir."
+    },
+    "redirects": {
+      "concept": "HTTP isteğinin son URL'ye ulaşana kadar geçtiği 3xx yönlendirmelerin zinciri.",
+      "purpose": "Çok fazla yönlendirme SEO'yu zayıflatır, performansı düşürür ve döngülerde sonsuz loop oluşur. Güvenlik açısından açık yönlendirme zafiyetlerine işaret edebilir.",
+      "tips": "İdeal: 0-1 redirect. http→https, www→non-www gibi yaygın geçişler dışında uzun zincirler optimize edilmeli."
+    },
+    "robots-txt": {
+      "concept": "/robots.txt dosyası, arama motoru ve crawler'lara hangi yolların taranabileceğini söyleyen bir REP (Robots Exclusion Protocol) standardı.",
+      "purpose": "SEO yönetimi, admin/private bölgeleri arama sonuçlarından gizleme ve crawler trafiğini kontrol için.",
+      "tips": "Disallow: / tüm crawl'ı engeller. Hassas yolları robots.txt'de yazmak güvenlik sağlamaz — sadece dizin gizler."
+    },
+    "sitemap": {
+      "concept": "sitemap.xml, sitedeki tüm önemli URL'lerin makine okunabilir listesi. Arama motorları için indeksleme rehberidir.",
+      "purpose": "Yeni içeriklerin daha hızlı keşfedilmesi, önemsiz sayfaların öncelik bilgisi ve değişim frekansı için.",
+      "tips": "URL sayısı 50.000'i geçerse sitemap index dosyası gerekir. lastmod tarihleri gerçekçi olmalı."
+    },
+    "linked-pages": {
+      "concept": "Sayfadaki tüm anchor (a href) bağlantılarını çıkarır, dahili (aynı domain) ve harici (farklı domain) olarak ayırır.",
+      "purpose": "İç linkleme yapısı SEO için önemli, harici linkler güven sinyali ama spam linkleri zarar verir. Crawling derinliği analizi için.",
+      "tips": "Çok fazla harici link spam işareti olabilir. rel='nofollow' ile düşük güvenli linkler işaretlenir."
+    },
+    "archives": {
+      "concept": "Wayback Machine (archive.org) ve diğer arşivlerin domain için geçmiş snapshot'larını sorgular.",
+      "purpose": "Sitenin tarihçesi, eski sürümleri, kaldırılmış içerik ve OSINT araştırması için. Domain sahipliği değişikliğini izlemek için.",
+      "tips": "İlk snapshot tarihi domain yaşı için iyi bir gösterge. Çok az snapshot domain'in az ziyaret edildiğini gösterir."
+    },
+    "rank": {
+      "concept": "Tranco listesi (önceden Alexa), siteleri global trafiğe göre sıralar. Akademik araştırmalarda standart kabul edilir.",
+      "purpose": "Sitenin popülerliği, rakiplerle karşılaştırma ve marka bilinirliği için kabaca bir gösterge.",
+      "tips": "1.000.000'un üstündeki siteler 'tail'dedir. İlk 10.000 oldukça popüler kabul edilir."
+    },
+    "block-lists": {
+      "concept": "Privacy odaklı DNS resolverlar (Cloudflare Family 1.1.1.3, AdGuard, Quad9) ve aile koruması listeleri sitenin engellenip engellenmediğini gösterir.",
+      "purpose": "Sitenin yetişkin/malware/tracking olarak işaretlenip işaretlenmediğini görmek için. Yanlış işaretleme ticari trafiği etkiler.",
+      "tips": "Birden fazla blocklist'te listelenme ciddi bir itibar sorunudur. AdGuard'da olmak normal (tracker), Quad9'da olmak zararlı."
+    },
+    "threats": {
+      "concept": "URLhaus, PhishTank gibi tehdit istihbarat platformlarında domain veya host'un yer alıp almadığını sorgular.",
+      "purpose": "Aktif olarak malware host eden veya phishing yapan domain'leri tespit etmek için. Tarayıcılar bu listeleri uyarı gösterirken kullanır.",
+      "tips": "Bu listelerde olmamak gereklilik ama yeterli değil. Yeni saldırılar listelere geç eklenebilir."
+    },
+    "shodan": {
+      "concept": "Shodan.io, internet'e açık tüm cihaz ve servisleri tarayan arama motoru. IP'ye göre servis, banner, port ve bilinen zafiyetleri döner.",
+      "purpose": "Saldırı yüzeyi analizi, expose olmuş veritabanları, eski yazılım sürümleri ve CVE eşleşmeleri için.",
+      "tips": "Vulns alanında CVE varsa öncelikli güncelleme gerekir. Beklenmedik açık portlar yapılandırma hatası işaretidir."
+    },
+    "malware": {
+      "concept": "Google Safe Browsing API, URL'leri zararlı yazılım, phishing ve istenmeyen yazılım listelerinde sorgular. Chrome, Firefox, Safari bu listeleri kullanır.",
+      "purpose": "Tarayıcı tarafından engellenip engellenmediğini görmek için. Engelleme reklamcılık ve SEO'ya doğrudan zarar verir.",
+      "tips": "Threats listesinde olmak acil durumdur. Önce tarama, sonra Search Console'dan kaldırma talebi."
+    }
+  },
+  "errors": {
+    "INVALID_INPUT": "Geçersiz giriş.",
+    "INVALID_URL": "Geçersiz URL.",
+    "INVALID_HOSTNAME": "Geçersiz alan adı.",
+    "URL_REQUIRED": "URL parametresi gerekli.",
+    "SSRF_BLOCKED": "Bu adres güvenlik nedeniyle engellendi (özel/iç ağ).",
+    "DNS_RESOLUTION_FAILED": "DNS çözümlemesi başarısız.",
+    "UPSTREAM_TIMEOUT": "Zaman aşımı ({seconds}s).",
+    "UPSTREAM_UNAVAILABLE": "Uzak servise erişilemedi.",
+    "UPSTREAM_HTTP_ERROR": "Uzak servis hata döndürdü ({status}).",
+    "TLS_HANDSHAKE_FAILED": "TLS el sıkışması başarısız.",
+    "RATE_LIMITED": "Çok fazla istek. Lütfen biraz bekleyin.",
+    "PROVIDER_UNAVAILABLE": "Sağlayıcı yapılandırılmamış veya erişilemedi.",
+    "NOT_FOUND": "Bulunamadı.",
+    "INTERNAL_ERROR": "Beklenmedik bir hata oluştu.",
+    "CANCELLED": "İptal edildi."
+  }
+}

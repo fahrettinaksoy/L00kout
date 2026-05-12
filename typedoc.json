@@ -1,0 +1,28 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "shared/url.ts",
+    "shared/types/checks.ts",
+    "server/utils/defineCheck.ts",
+    "server/utils/errors.ts",
+    "server/utils/ssrf.ts",
+    "server/utils/rateLimit.ts",
+    "server/utils/cache.ts",
+    "server/utils/upstream.ts",
+    "server/utils/scoring.ts",
+    "server/utils/dns.ts",
+    "server/utils/httpSecurity.ts",
+    "server/utils/metrics.ts",
+    "app/composables/useCheckStatus.ts"
+  ],
+  "out": "docs/api",
+  "tsconfig": "tsconfig.json",
+  "skipErrorChecking": true,
+  "excludeExternals": true,
+  "readme": "none",
+  "name": "L00kout API",
+  "navigationLinks": {
+    "Repository": "https://github.com",
+    "ADRs": "../adr/"
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "First-load JS (landing)",
+    "path": ".output/public/_nuxt/index*.js",
+    "limit": "200 KB",
+    "gzip": true
+  },
+  {
+    "name": "First-load JS (dashboard)",
+    "path": ".output/public/_nuxt/_target_*.js",
+    "limit": "250 KB",
+    "gzip": true
+  },
+  {
+    "name": "Shared chunks",
+    "path": ".output/public/_nuxt/B*.js",
+    "limit": "350 KB",
+    "gzip": true
+  }
+]

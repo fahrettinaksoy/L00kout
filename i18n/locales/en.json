@@ -1,0 +1,498 @@
+{
+  "common": {
+    "appName": "L00kout",
+    "tagline": "31 OSINT and security checks for any website",
+    "subtagline": "SSL · DNS · WHOIS · Headers · Tech Stack · Lighthouse · and more",
+    "rerun": "Re-run",
+    "rawData": "Raw data",
+    "loading": "Checking…",
+    "noResults": "No results",
+    "unknownError": "Unknown error",
+    "secondsShort": "s",
+    "msShort": "ms",
+    "info": "Info",
+    "refresh": "Refresh",
+    "close": "Close",
+    "theme": "Theme",
+    "themeDark": "Dark",
+    "themeLight": "Light",
+    "concept": "What is this check?",
+    "purpose": "Why does it matter?",
+    "tips": "What to look for"
+  },
+  "landing": {
+    "inputLabel": "URL or domain",
+    "inputPlaceholder": "example.com",
+    "submit": "Start Analysis",
+    "invalid": "Enter a valid URL or domain (e.g. example.com)",
+    "examples": "Examples"
+  },
+  "dashboard": {
+    "targetLabel": "Target",
+    "completed": "Completed",
+    "all": "All",
+    "searchPlaceholder": "example.com",
+    "overview": "Overview",
+    "categories": "Categories",
+    "success": "Success",
+    "running": "Running",
+    "error": "Error"
+  },
+  "categories": {
+    "security": "Security",
+    "dns": "DNS",
+    "network": "Network",
+    "performance": "Performance",
+    "metadata": "Metadata",
+    "crawling": "Crawling",
+    "reputation": "Reputation"
+  },
+  "checks": {
+    "ssl": {
+      "title": "SSL Certificate",
+      "description": "Certificate details, TLS protocol, cipher and SSL Labs grade"
+    },
+    "http-security": {
+      "title": "HTTP Security Headers",
+      "description": "CSP, HSTS (incl. preload), X-Frame-Options and more — score analysis"
+    },
+    "firewall": {
+      "title": "WAF Detection",
+      "description": "Detect firewalls like Cloudflare, AWS WAF, Sucuri"
+    },
+    "security-txt": {
+      "title": "Security.txt",
+      "description": "/.well-known/security.txt file and responsible disclosure policy"
+    },
+    "cookies": {
+      "title": "Cookie Analysis",
+      "description": "HttpOnly, Secure, SameSite cookie flag analysis"
+    },
+    "dns": {
+      "title": "DNS Records",
+      "description": "All record types, nameserver DoH support and TXT classification"
+    },
+    "dnssec": {
+      "title": "DNSSEC",
+      "description": "DNS security extensions (DS/DNSKEY) validation"
+    },
+    "mail-config": {
+      "title": "Email Configuration",
+      "description": "SPF / DKIM / DMARC email authentication setup"
+    },
+    "whois": { "title": "WHOIS", "description": "Domain owner, registrar and expiration date" },
+    "subdomains": {
+      "title": "Subdomains",
+      "description": "Subdomain discovery from Certificate Transparency logs"
+    },
+    "hostnames": {
+      "title": "Host Names",
+      "description": "Reverse DNS (PTR) hostnames for the resolved IPs"
+    },
+    "location": {
+      "title": "Server Location",
+      "description": "IPv4/IPv6 addresses, geographic location, country, ISP and map"
+    },
+    "ports": {
+      "title": "Open Ports",
+      "description": "Status of common TCP ports (22, 25, 80, 443, etc.)"
+    },
+    "trace-route": { "title": "Traceroute", "description": "Network path to the target server" },
+    "status": { "title": "Server Status", "description": "HTTP status code and response time" },
+    "quality": {
+      "title": "Lighthouse Score",
+      "description": "Performance, Accessibility, SEO, Best Practices scores"
+    },
+    "carbon": {
+      "title": "Carbon Footprint",
+      "description": "Estimated CO₂ emissions of page load"
+    },
+    "screenshot": {
+      "title": "Screenshot",
+      "description": "Headless browser screenshot of the site"
+    },
+    "headers": { "title": "HTTP Headers", "description": "Full list of response headers" },
+    "tech-stack": {
+      "title": "Tech Stack",
+      "description": "Frameworks, libraries and services used by the site"
+    },
+    "social-tags": {
+      "title": "Social Media Tags",
+      "description": "Open Graph, Twitter Cards, Facebook meta tags"
+    },
+    "redirects": { "title": "Redirects", "description": "HTTP redirect chain and final URL" },
+    "robots-txt": {
+      "title": "robots.txt",
+      "description": "Crawler rules and allowed/disallowed paths"
+    },
+    "sitemap": { "title": "Sitemap", "description": "Content of sitemap.xml or sitemap_index.xml" },
+    "linked-pages": { "title": "Links", "description": "Internal and external links on the page" },
+    "archives": {
+      "title": "Wayback Machine",
+      "description": "Historical snapshots on archive.org"
+    },
+    "rank": {
+      "title": "Global Rank",
+      "description": "Global popularity ranking on the Tranco list"
+    },
+    "block-lists": {
+      "title": "Block Lists",
+      "description": "Check on privacy/malware DNS blocklists"
+    },
+    "threats": {
+      "title": "Threat Detection",
+      "description": "Check on URLhaus, PhishTank and similar threat lists"
+    },
+    "shodan": {
+      "title": "Shodan",
+      "description": "Host services and banner information from Shodan.io"
+    },
+    "malware": {
+      "title": "Malware Scan",
+      "description": "Malicious software detection via Google Safe Browsing"
+    }
+  },
+  "ssl": {
+    "daysLeft": "{n} days left",
+    "issuer": "Issuer",
+    "subject": "Subject",
+    "trusted": "Trusted",
+    "validity": "Valid until",
+    "altNames": "Alt names",
+    "altNamesCount": "{n} domains",
+    "expires": "Expires",
+    "renewed": "Renewed",
+    "serialNumber": "Serial",
+    "fingerprint": "Fingerprint",
+    "asn1Curve": "ASN1 Curve",
+    "nistCurve": "NIST Curve",
+    "keyAlgo": "Key",
+    "signature": "Signature",
+    "extKeyUsage": "Extended Key Usage",
+    "protocol": "Protocol",
+    "cipher": "Cipher",
+    "labsGrade": "SSL Labs",
+    "alpn": "ALPN",
+    "forwardSecrecy": "Forward Secrecy",
+    "sessionResumption": "Session Resumption",
+    "ocsp": "OCSP Stapling",
+    "ephemeralKey": "Ephemeral Key",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "dns": {
+    "noRecords": "No records found",
+    "records": "Records",
+    "nameservers": "Nameservers",
+    "doh": "DoH",
+    "txtClassified": "TXT Classification",
+    "supported": "supported",
+    "notSupported": "not supported",
+    "more": "more"
+  },
+  "techStack": {
+    "detected": "{n} technologies detected"
+  },
+  "httpSec": {
+    "headersPresent": "{n} / {total} headers present",
+    "hstsTitle": "HSTS",
+    "hstsActive": "Active",
+    "hstsMissing": "Missing",
+    "hstsPreload": "Preload",
+    "hstsSubdomains": "Subdomains",
+    "hstsMaxAge": "Max-Age",
+    "headers": "Headers"
+  },
+  "cookies": {
+    "total": "Total cookies",
+    "secure": "Secure",
+    "httpOnly": "HttpOnly"
+  },
+  "redirects": {
+    "count": "{n} redirects"
+  },
+  "status": {
+    "responseTime": "{n}ms response time"
+  },
+  "ip": {
+    "ipv4": "IPv4",
+    "ipv6": "IPv6"
+  },
+  "location": {
+    "isp": "ISP",
+    "asn": "ASN",
+    "ip": "IP",
+    "city": "City",
+    "country": "Country",
+    "timezone": "Timezone",
+    "languages": "Languages",
+    "currency": "Currency",
+    "coordinates": "Coordinates"
+  },
+  "ports": {
+    "openCount": "{n} open ports",
+    "allClosed": "Common ports are closed",
+    "closedTitle": "Unable to establish connections to"
+  },
+  "firewall": {
+    "detected": "Detected",
+    "notDetected": "Not detected",
+    "disclaimer": "The domain may be protected with a proprietary or custom WAF which we were unable to identify automatically.",
+    "server": "Server"
+  },
+  "archives": {
+    "snapshots": "Snapshots",
+    "first": "First archive",
+    "last": "Last archive",
+    "notFound": "No archives found"
+  },
+  "screenshot": {
+    "failed": "Could not capture screenshot",
+    "via": "via {provider}"
+  },
+  "robots": {
+    "allow": "Allow",
+    "disallow": "Disallow",
+    "sitemap": "Sitemap",
+    "notFound": "robots.txt not found"
+  },
+  "sitemap": {
+    "url": "URL",
+    "index": "Index",
+    "notFound": "Sitemap not found"
+  },
+  "subdomains": {
+    "base": "Base domain",
+    "found": "Found",
+    "noneFound": "No subdomains found",
+    "showing": "Showing first {n}"
+  },
+  "hostnames": {
+    "ips": "IPs",
+    "hostnames": "Hostnames",
+    "noPtr": "No PTR record"
+  },
+  "blockLists": {
+    "blocked": "Blocked",
+    "notBlocked": "Not blocked",
+    "summary": "Safe on {safe}/{total} resolvers"
+  },
+  "rank": {
+    "current": "Current",
+    "average": "Average",
+    "best": "Best",
+    "worst": "Worst",
+    "history": "Last 12",
+    "notRanked": "Not on Tranco list"
+  },
+  "dnssecExt": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "records": "Records",
+    "flags": "Flags"
+  },
+  "external": {
+    "keyRequired": "API key required",
+    "keyHint": "This check needs a free API key. See README and .env.example for setup.",
+    "rateLimited": "Rate limit reached",
+    "tryLater": "Try again in a few minutes"
+  },
+  "mail": {
+    "spf": "SPF",
+    "dkim": "DKIM",
+    "dmarc": "DMARC",
+    "mx": "MX",
+    "score": "Score",
+    "configured": "Configured",
+    "missing": "Missing",
+    "selector": "Selector",
+    "policy": "Policy"
+  },
+  "whois": {
+    "domain": "Domain",
+    "registrar": "Registrar",
+    "registrarUrl": "Registrar URL",
+    "registrarIanaId": "Registrar IANA ID",
+    "registrarWhois": "Registrar WHOIS",
+    "created": "Created",
+    "expires": "Expires",
+    "updated": "Updated",
+    "dnssec": "DNSSEC",
+    "registryId": "Registry ID",
+    "status": "Status"
+  },
+  "info": {
+    "ssl": {
+      "concept": "Comprehensive SSL/TLS evaluation combining certificate analysis, TLS protocol and cipher suite detection, CA trust verification and industry-standard SSL Labs grade.",
+      "purpose": "Traffic encryption, MITM protection, forward secrecy (PFS) and certificate renewal tracking — both technical and reputational dimensions.",
+      "tips": "Trusted should be Yes, prefer TLS 1.3, ECDHE ciphers provide PFS, target SSL Labs A or A+. Renew if less than 30 days remain."
+    },
+    "http-security": {
+      "concept": "Presence, quality and A-F grade of security headers (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, Cross-Origin policies) that restrict browser behavior. Includes HSTS preload status.",
+      "purpose": "Browser-level defense against common web attacks like XSS, clickjacking, MIME sniffing, SSL stripping and data leakage — configuration quality at a glance.",
+      "tips": "Aim for grade A or B. At minimum CSP, HSTS (max-age ≥ 1 year + includeSubDomains + preload) and X-Content-Type-Options should be present."
+    },
+    "firewall": {
+      "concept": "A Web Application Firewall (WAF) inspects traffic at the application layer and filters malicious requests (SQL injection, XSS, bot traffic). Detected via HTTP header fingerprinting.",
+      "purpose": "Blocks known attack signatures, provides DDoS protection and adds a layer against OWASP Top 10 vulnerabilities.",
+      "tips": "Cloudflare, AWS WAF, Sucuri, Fastly, Imperva are common. No WAF isn't always bad but recommended for public services."
+    },
+    "security-txt": {
+      "concept": "RFC 9116 standard — the /.well-known/security.txt file contains contact info and policy so security researchers can report vulnerabilities.",
+      "purpose": "Provides a responsible disclosure channel; an indicator of security maturity for serious organizations.",
+      "tips": "Contact, Expires and Policy fields should be present. Expires should not be in the past."
+    },
+    "cookies": {
+      "concept": "Analysis of HTTP cookies set by the site and their security flags (Secure, HttpOnly, SameSite).",
+      "purpose": "Non-HttpOnly cookies can be stolen via XSS; non-Secure ones can leak over HTTP; SameSite=Strict/Lax protects against CSRF attacks.",
+      "tips": "Session cookies (session, auth) must have HttpOnly + Secure + SameSite."
+    },
+    "dns": {
+      "concept": "Bulk query of all DNS record types (A, AAAA, MX, NS, CNAME, SOA, TXT, SRV), DNS-over-HTTPS (DoH) support of nameservers and classification of TXT records by purpose (SPF, DMARC, DKIM, BIMI, verification).",
+      "purpose": "Where the domain points, how mail is routed, which services are verified and resolver privacy — a holistic view of DNS infrastructure.",
+      "tips": "Multiple NS records are essential for redundancy, no MX means no mail, DoH-enabled resolvers improve privacy, SPF lookup limit is 10 DNS queries."
+    },
+    "dnssec": {
+      "concept": "DNSSEC cryptographically signs DNS responses. DS and DNSKEY records enable validation.",
+      "purpose": "Protects against DNS cache poisoning and spoofing attacks. The resolver verifies the response truly came from the authoritative server.",
+      "tips": "If DNSSEC is enabled, DS record should be in the parent zone, DNSKEY in own zone. Recommended for .gov and .bank domains."
+    },
+    "mail-config": {
+      "concept": "Email sender authentication: SPF (which servers can send), DKIM (message signature), DMARC (policy and reporting).",
+      "purpose": "Together they protect against email spoofing and phishing attacks. Missing them causes mail to land in spam.",
+      "tips": "All three are important. DMARC policy should be p=none initially, then quarantine, finally reject."
+    },
+    "whois": {
+      "concept": "WHOIS queries domain registration details: who owns it, which registrar, when registered, when it expires.",
+      "purpose": "Domain age, ownership and duration are trust indicators. Newly registered domains are often used for phishing.",
+      "tips": "Very near expiration date (e.g. 30 days) is a neglect sign. Post-GDPR, registrant info is often redacted (REDACTED FOR PRIVACY)."
+    },
+    "subdomains": {
+      "concept": "Certificate Transparency (CT) logs are a public log system where every new SSL certificate is publicly recorded. crt.sh discovers subdomains by querying these logs.",
+      "purpose": "Maps the attack surface — forgotten subdomains like dev/staging/admin are major security risks. Foundational step in OSINT research.",
+      "tips": "Hundreds of subdomains may be spam/auto-generated. Watch for prefixes like dev., staging., admin., test., internal. Wildcard certs appear as a single subdomain."
+    },
+    "hostnames": {
+      "concept": "PTR (reverse DNS) records map an IP to a hostname. An IP may have multiple hostnames (shared hosting, CDN).",
+      "purpose": "Used for real IP ownership, shared hosting detection, CDN verification and mail sender reputation.",
+      "tips": "IPs without PTR records are problematic for outbound mail. Many different domains in PTR indicates shared hosting."
+    },
+    "location": {
+      "concept": "Resolves all IPv4/IPv6 addresses from A/AAAA DNS records, then finds the primary IP's geographic location, ISP, ASN and position on a map.",
+      "purpose": "Where and which provider hosts the server, CDN usage, privacy (GDPR), latency estimation and traffic patterns — a holistic view of server identity.",
+      "tips": "Multiple IPv4s indicate load balancing/CDN. IPv6 support is a sign of modernity. With CDN, location varies by region."
+    },
+    "ports": {
+      "concept": "Attempts to connect to common TCP ports (22-SSH, 25-SMTP, 80-HTTP, 443-HTTPS, 3306-MySQL, etc.) and identifies which are open.",
+      "purpose": "Unnecessarily exposed services expand the attack surface. Database ports (3306, 5432, 6379) should not be public.",
+      "tips": "Only 80 and 443 should be open for most web services. If SSH (22) is open, use fail2ban and key-only auth."
+    },
+    "trace-route": {
+      "concept": "Shows the network hops (routers) a packet traverses to reach the destination. Measures latency at each hop.",
+      "purpose": "Useful for understanding network topology, finding latency sources, and seeing which countries traffic passes through.",
+      "tips": "High hop count or long delay at a single hop = bottleneck. Hops with asterisks (*) usually hide ICMP behind firewalls."
+    },
+    "status": {
+      "concept": "Is the site online, what's the HTTP status code (200, 301, 404, 500, etc.), how fast does it respond — basic health check.",
+      "purpose": "Verifies the site is reachable and healthy. Slow response (>1s) signals a UX problem.",
+      "tips": "200 = OK, 3xx = redirect, 4xx = client error, 5xx = server error. TTFB (time to first byte) < 200ms is ideal."
+    },
+    "quality": {
+      "concept": "Google Lighthouse loads the page in a headless browser and scores it 0-100 on Performance, Accessibility, Best Practices and SEO.",
+      "purpose": "Provides concrete metrics for user experience, search ranking, conversion rates and accessibility.",
+      "tips": "90+ is good, 50-89 average, <50 poor. LCP < 2.5s, CLS < 0.1, INP < 200ms are Core Web Vitals targets."
+    },
+    "carbon": {
+      "concept": "Estimated CO₂ emissions calculated from data transferred during page load, assuming the global energy mix.",
+      "purpose": "Web sustainability is a growing concern. Heavy sites are both slow and harmful to the environment; optimization brings technical and ethical benefits.",
+      "tips": "Shrink image sizes, remove unnecessary JavaScript, prefer green-energy hosting."
+    },
+    "screenshot": {
+      "concept": "Captures a visual screenshot of the page using a headless browser (e.g. Puppeteer).",
+      "purpose": "Useful for seeing how the site looks, detecting defacement (page takeovers) or SSR/CSR rendering differences.",
+      "tips": "Blank or broken image indicates rendering issues. Mobile vs desktop screenshots can be compared."
+    },
+    "headers": {
+      "concept": "All HTTP response headers returned by the server — Content-Type, Cache-Control, Server, X-Powered-By, compression info, etc.",
+      "purpose": "Reveals information about server configuration. Some headers (Server, X-Powered-By) unnecessarily leak stack details.",
+      "tips": "Hiding Server and X-Powered-By reduces info disclosure. Cache-Control is critical for performance."
+    },
+    "tech-stack": {
+      "concept": "Analyzes HTML, header and script signatures to detect frameworks, CMS, CDN, analytics, payment and other technologies used by the site.",
+      "purpose": "Useful for competitive analysis, security research (detecting old versions), market research and tech benchmarking.",
+      "tips": "Old versions (WordPress 4.x, old jQuery) may contain known vulnerabilities. Too many 3rd-party scripts are a privacy risk."
+    },
+    "social-tags": {
+      "concept": "Open Graph (Facebook, LinkedIn) and Twitter Cards meta tags — the preview image/title/description shown when the page is shared on social media.",
+      "purpose": "Directly affects click-through rates and brand perception. Missing tags result in broken previews.",
+      "tips": "og:title, og:description, og:image (1200x630px) and twitter:card are the minimum required set."
+    },
+    "redirects": {
+      "concept": "The chain of 3xx redirects an HTTP request goes through to reach the final URL.",
+      "purpose": "Too many redirects weaken SEO, hurt performance, and cycles cause infinite loops. Security-wise can indicate open redirect vulnerabilities.",
+      "tips": "Ideal: 0-1 redirect. Common transitions like http→https, www→non-www aside, long chains should be optimized."
+    },
+    "robots-txt": {
+      "concept": "/robots.txt is an REP (Robots Exclusion Protocol) standard file telling search engines and crawlers which paths can be crawled.",
+      "purpose": "For SEO management, hiding admin/private areas from search results, and controlling crawler traffic.",
+      "tips": "Disallow: / blocks all crawling. Listing sensitive paths in robots.txt does NOT provide security — it just hides from indexing."
+    },
+    "sitemap": {
+      "concept": "sitemap.xml is a machine-readable list of all important URLs on the site. It's an indexing guide for search engines.",
+      "purpose": "For faster discovery of new content, priority signals for unimportant pages, and change frequency hints.",
+      "tips": "If URL count exceeds 50,000, a sitemap index file is needed. lastmod dates should be realistic."
+    },
+    "linked-pages": {
+      "concept": "Extracts all anchor (a href) links on the page, separated into internal (same domain) and external (different domain).",
+      "purpose": "Internal linking structure is important for SEO, external links are trust signals but spam links hurt. Useful for crawling depth analysis.",
+      "tips": "Too many external links can be a spam signal. Low-trust links are marked with rel='nofollow'."
+    },
+    "archives": {
+      "concept": "Queries past snapshots of the domain from Wayback Machine (archive.org) and other archives.",
+      "purpose": "For site history, old versions, removed content and OSINT research. Useful for tracking ownership changes.",
+      "tips": "First snapshot date is a good indicator of domain age. Few snapshots indicate the domain was rarely visited."
+    },
+    "rank": {
+      "concept": "The Tranco list (formerly Alexa) ranks sites by global traffic. Accepted as the standard in academic research.",
+      "purpose": "A rough indicator of site popularity, competitor comparison and brand awareness.",
+      "tips": "Sites above 1,000,000 are in the 'tail'. Top 10,000 is considered fairly popular."
+    },
+    "block-lists": {
+      "concept": "Privacy-focused DNS resolvers (Cloudflare Family 1.1.1.3, AdGuard, Quad9) and family-protection lists show whether the site is blocked.",
+      "purpose": "To see if the site is flagged as adult/malware/tracking. False flagging affects commercial traffic.",
+      "tips": "Being listed on multiple blocklists is a serious reputation issue. Being on AdGuard is normal (trackers), being on Quad9 is harmful."
+    },
+    "threats": {
+      "concept": "Checks whether the domain or host appears on threat intelligence platforms like URLhaus, PhishTank.",
+      "purpose": "Identifies domains actively hosting malware or running phishing. Browsers use these lists to show warnings.",
+      "tips": "Not being on these lists is necessary but not sufficient. New attacks may be added to the lists late."
+    },
+    "shodan": {
+      "concept": "Shodan.io is a search engine that scans all internet-exposed devices and services. Returns service, banner, port and known vulnerabilities for an IP.",
+      "purpose": "For attack surface analysis, exposed databases, old software versions and CVE matches.",
+      "tips": "If CVEs appear in vulns, priority update is needed. Unexpected open ports indicate misconfiguration."
+    },
+    "malware": {
+      "concept": "Google Safe Browsing API checks URLs against malware, phishing and unwanted software lists. Chrome, Firefox and Safari use these lists.",
+      "purpose": "To see if the site is blocked by browsers. Being blocked directly hurts advertising and SEO.",
+      "tips": "Being on Threats lists is an emergency. First clean, then request removal via Search Console."
+    }
+  },
+  "errors": {
+    "INVALID_INPUT": "Invalid input.",
+    "INVALID_URL": "Invalid URL.",
+    "INVALID_HOSTNAME": "Invalid hostname.",
+    "URL_REQUIRED": "url query parameter is required.",
+    "SSRF_BLOCKED": "Target blocked for security reasons (private/internal network).",
+    "DNS_RESOLUTION_FAILED": "DNS resolution failed.",
+    "UPSTREAM_TIMEOUT": "Upstream timeout ({seconds}s).",
+    "UPSTREAM_UNAVAILABLE": "Upstream service unavailable.",
+    "UPSTREAM_HTTP_ERROR": "Upstream service returned an error ({status}).",
+    "TLS_HANDSHAKE_FAILED": "TLS handshake failed.",
+    "RATE_LIMITED": "Too many requests. Please wait a moment.",
+    "PROVIDER_UNAVAILABLE": "Provider not configured or unreachable.",
+    "NOT_FOUND": "Not found.",
+    "INTERNAL_ERROR": "Unexpected error.",
+    "CANCELLED": "Cancelled."
+  }
+}
