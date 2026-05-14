@@ -8,7 +8,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare && node scripts/scrub-lockfile.mjs",
+    "postinstall": "nuxt prepare",
     "prepare": "husky || true",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
